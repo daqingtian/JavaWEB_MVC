@@ -1,6 +1,7 @@
 package dao.impl;
 
 import dao.CustomerDao;
+import domain.CriteriaCustomer;
 import domain.Customer;
 import org.junit.Test;
 
@@ -60,4 +61,46 @@ public class CustomerDaoJdbcImplTest {
         long count = customerDaoJdbc.getCountWithName("1name");
         System.out.println("数量："+count);
     }
+
+
+    /**
+     * 模糊查询
+     */
+    @Test
+    public void getForListWithCriteriaCustomer() {
+        CustomerDaoJdbcImpl customerDaoJdbc = new CustomerDaoJdbcImpl();
+        CriteriaCustomer criteriaCustomer =  new CriteriaCustomer();
+        criteriaCustomer.setName("1");
+        List<Customer> customers = customerDaoJdbc.getForListWithCriteriaCustomer(criteriaCustomer);
+        for (Customer customer :customers){
+            System.out.println(
+                    customer.getId()+"=="+
+                    customer.getAddress()+"=="+
+                    customer.getName()+"=="+
+                    customer.getPhone());
+        }
+    }
+
+
+
+    /**
+     * 模糊查询
+     */
+//    @Test
+//    public void frzzyQuery() {
+//        CustomerDaoJdbcImpl customerDaoJdbc = new CustomerDaoJdbcImpl();
+//        String key = "n";
+//        List<Customer> customers = customerDaoJdbc.frzzyQuery("%"+key+"%");
+//        for (Customer customer:customers){
+//            System.out.println(
+//                    customer.getId()+"=="+
+//                            customer.getAddress()+"=="+
+//                            customer.getName()+"=="+
+//                            customer.getPhone());
+//        }
+//    }
+//    @Test
+//    public void frzzyQuery1() {
+//    }
+
 }

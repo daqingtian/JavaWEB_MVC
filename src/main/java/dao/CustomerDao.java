@@ -1,5 +1,6 @@
 package dao;
 
+import domain.CriteriaCustomer;
 import domain.Customer;
 
 import javax.swing.undo.CannotUndoException;
@@ -15,6 +16,22 @@ public interface CustomerDao {
     public void save (Customer customer);
     public Customer get(Integer id);
     public void delete(Integer id);
+    public void update(Customer customer);
+
+
+    /**
+     * 模糊查询
+     */
+    public List<Customer> getForListWithCriteriaCustomer(CriteriaCustomer criteriaCustomer);
+
+
+    /**
+     * @param key
+     * @return
+     * 模糊查询
+     */
+//    public List<Customer> frzzyQuery(String key);
+//    public List<Customer> frzzyQuery();
 
     /**
      * @param name

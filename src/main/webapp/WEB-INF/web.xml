@@ -4,4 +4,13 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>customer</servlet-name>
+    <servlet-class>service.CustomerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>customer</servlet-name>
+    <!--<url-pattern>/customer</url-pattern>-->
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
 </web-app>
